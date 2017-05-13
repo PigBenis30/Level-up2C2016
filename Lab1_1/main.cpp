@@ -20,7 +20,7 @@ __fastcall TForm2::TForm2(TComponent* Owner): TForm(Owner)
 	RadioButton4->Checked = true;
 }
 //---------------------------------------------------------------------------
-// event handler when you click on <Íàðèñîâàòü>
+// event handler when you click on <ÐÐ°Ñ€Ð¸ÑÐ¾Ð²Ð°Ñ‚ÑŒ>
 void __fastcall TForm2::Button1Click(TObject *Sender)
 {
 	AEllipse.HideEllipse(Canvas);
@@ -43,12 +43,12 @@ void __fastcall TForm2::Button1Click(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
-// event handler when you click on <Î÷èñòèòü>
+// event handler when you click on <ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ>
 void __fastcall TForm2::Button2Click(TObject *Sender)
 {
 	AEllipse.HideEllipse(Canvas);
 }
-// event handler when you click on <Ïåðåìåñòèòü>
+// event handler when you click on <ÐŸÐµÑ€ÐµÐ¼ÐµÑÑ‚Ð¸Ñ‚ÑŒ>
 void __fastcall TForm2::Button3Click(TObject *Sender)
 {
 	if (RadioButton1->Checked == true) {
@@ -64,7 +64,7 @@ void __fastcall TForm2::Button3Click(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
-// event handler when you click on RadioButton <Ìíîãîóãîëüíèê>
+// event handler when you click on RadioButton <ÐœÐ½Ð¾Ð³Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸Ðº>
 void __fastcall TForm2::RadioButton3Click(TObject *Sender)
 {
 	GroupBox7->Enabled = false;
@@ -72,7 +72,7 @@ void __fastcall TForm2::RadioButton3Click(TObject *Sender)
 	Edit10->Enabled = true;
 }
 //---------------------------------------------------------------------------
-// event handler when you click on RadioButton <Ýëëèïñ>
+// event handler when you click on RadioButton <Ð­Ð»Ð»Ð¸Ð¿Ñ>
 void __fastcall TForm2::RadioButton1Click(TObject *Sender)
 {
 	GroupBox7->Enabled = false;
@@ -80,7 +80,7 @@ void __fastcall TForm2::RadioButton1Click(TObject *Sender)
 	Edit10->Enabled = false;
 }
 //---------------------------------------------------------------------------
-// event handler when you click on RadioButton <Ïðÿìîóãîëüíèê>
+// event handler when you click on RadioButton <ÐŸÑ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸Ðº>
 void __fastcall TForm2::RadioButton2Click(TObject *Sender)
 {
 	GroupBox7->Enabled = true;
@@ -88,7 +88,7 @@ void __fastcall TForm2::RadioButton2Click(TObject *Sender)
 	Edit10->Enabled = false;
 }
 //---------------------------------------------------------------------------
-/// event handler when you click on <Ìàñøòàáèðîâàòü>
+/// event handler when you click on <ÐœÐ°ÑÑˆÑ‚Ð°Ð±Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ>
 void __fastcall TForm2::Button4Click(TObject *Sender)
 {
 	if (RadioButton1->Checked == true) {
@@ -113,13 +113,13 @@ void __fastcall TForm2::Button4Click(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
-// event handler when you click on <Âûõîä>
+// event handler when you click on <Ð’Ñ‹Ñ…Ð¾Ð´>
 void __fastcall TForm2::Button6Click(TObject *Sender)
 {
 	Form2->Close();
 }
 //---------------------------------------------------------------------------
-// event handler when you click on <Ïîâîðîò>
+// event handler when you click on <ÐŸÐ¾Ð²Ð¾Ñ€Ð¾Ñ‚>
 void __fastcall TForm2::Button5Click(TObject *Sender)
 {
 	if (RadioButton2->Checked == true) {
