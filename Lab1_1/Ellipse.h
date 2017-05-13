@@ -1,5 +1,5 @@
 #include <vcl.h>
- // class Ellipsс
+ // class EllipsГ±
 class EllipseObject
 {
 	protected:
@@ -8,7 +8,7 @@ class EllipseObject
 	public:
 	// constructor without initialization parameters
 	EllipseObject() {}
-	// функция, рисующая эллипс с заданными коордиатами
+	// func which draw ellipse on screen
 	void ShowEllipse(TCanvas *Canvas, int xe, int ye, int ae, int be)
 	 {
 		x = xe;
@@ -18,13 +18,13 @@ class EllipseObject
 		Canvas->Pen->Color=clRed;
 		Canvas->Ellipse(x - a, y - b, x + a, y + b);
 	 }
-	 // функция, стирающая эллипс
+	 // func which hide ellipse
 	 void HideEllipse(TCanvas *Canvas)
 	 {
 		Canvas->Pen->Color=clWhite;
 		Canvas->Rectangle(0, 0, 600, 800);
 	 }
-	 // функция, двигающая эллипс в задданные координаты
+	 // func which move ellipse on specified coordinates 
 	 void MoveEllipse(TCanvas *Canvas, int xn, int yn)
 	 {
 		int xe = x, ye = y;
@@ -56,7 +56,7 @@ class EllipseObject
 			Sleep(10);
 		}
 	 }
-	 // функция масштабирования эллипса
+	 // func fich 
 	 void ScaleEllipse(TCanvas *Canvas, int xn, bool isIncrease)
 	 {
 		for (int Count = 1; Count<=xn; Count++){
@@ -67,27 +67,17 @@ class EllipseObject
 				ShowEllipse(Canvas, x, y, a - 1, b - 1);
 			Sleep(30);
 			if (a <= 0 || b <= 0){
-				ShowMessage("Фигура испарилась");
+				ShowMessage("Г”ГЁГЈГіГ°Г  ГЁГ±ГЇГ Г°ГЁГ«Г Г±Гј");
 				return;
 			}
 		}
 	 }
-	 // угол поворота при вращении
-	 void RotateDegree(HANDLE dc,float Degree)
-	 {
-
-	 }
-	//функция вращения эллипса с заданным углом. контекст.
-	 void RotateEllipse(float Degree,HDC dc)
-	 {
-
-	 }
-	 // функция, высчитывающая площадь эллипса
+	 // func which find ellipse area
 	 int AreaEllipse()
 	 {
 		 return a * b * M_PI;
 	 }
-	 // функция, высчитывающая периметр эллипса
+	 // func which find ellipse perimetr
 	 int PerimetrEllipse()
 	 {
 		if ((a+b) == 0)
@@ -95,6 +85,6 @@ class EllipseObject
 		else
 			return 4 * (M_PI * a * b + (a - b)) / (a + b);
 	 }
-	 // деструктор
+	 // destructor
 	 ~EllipseObject(){}
 };
