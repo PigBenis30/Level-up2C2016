@@ -8,7 +8,7 @@ class PolygonObject
 	public:
 	// constructor without initialization parameters
 	PolygonObject() {}
-	// функция, рисующая многоугольник с заданными коордиатами
+	// func which draw polygon
 	void ShowPolygon(TCanvas *Canvas, int xp, int yp, int rp, int np)
 	 {
 		int xi, yi;
@@ -32,13 +32,13 @@ class PolygonObject
 		}
 		}
 	 }
-	 // функция, стирающая эмногоугольник
+	 // func which hide polygon from screen
 	 void HidePolygon(TCanvas *Canvas)
 	 {
 		Canvas->Pen->Color=clWhite;
 		Canvas->Rectangle(0, 0, 600, 800);
 	 }
-	 // функция, двигающая многоугольник в задданные координаты
+	 // func which move polygon on specified coordinates
 	 void MovePolygon(TCanvas *Canvas, int xn, int yn)
 	 {
 		int xe = x, ye = y;
@@ -69,7 +69,7 @@ class PolygonObject
 			Sleep(10);
 			}
 	 }
-	 // функция масштабирования многоугольника
+	 // func which scale polygon
 	 void ScalePolygon(TCanvas *Canvas, int xn, bool isIncrease)
 	 {
 		for (int Count = 1; Count <= xn; Count++){
@@ -80,12 +80,12 @@ class PolygonObject
 				ShowPolygon(Canvas, x, y, r - 1, n);
 			Sleep(30);
 			if (r <= 0){
-				ShowMessage("Фигура испарилась");
+				ShowMessage("Г”ГЁГЈГіГ°Г  ГЁГ±ГЇГ Г°ГЁГ«Г Г±Гј");
 				return;
 			}
 		}
 	 }
-	 // функция, высчитывающая площадь многоугольника
+	 // func which find polygon area
 	 int AreaPolygon()
 	 {
 		if (n == 0)
@@ -93,7 +93,7 @@ class PolygonObject
 		else
 			return n / 2 * r * r * sin(2 * M_PI / n);
 	 }
-	 // функция, высчитывающая периметр многоугольника
+	 // func which find polygon perimetr
 	 int PerimetrPolygon()
 	 {  if (n == 0)
 			return 0;
@@ -102,6 +102,6 @@ class PolygonObject
 			return a * n;
 		}
 	 }
-	 // деструктор
+	 // destructor
 	 ~PolygonObject(){}
 };
