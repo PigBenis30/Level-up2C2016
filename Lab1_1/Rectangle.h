@@ -8,7 +8,7 @@ class RectangleObject
 	 public:
 	 // constructor without initialization parameters
 	 RectangleObject() {}
-	 // функция, рисующая прямоугольник с заданными коордиатами
+	 // func which draw rectangle on screen
 	  void ShowRectangle(TCanvas *Canvas, int xr, int yr, int ar, int br)
 	 {
 		x = xr;
@@ -18,13 +18,13 @@ class RectangleObject
 		Canvas->Pen->Color=clRed;
 		Canvas->Rectangle(x - a, y - b, x + a, y + b);
 	 }
-	 // функция, стирающая прямогоугольник
+	 // func which hide rectangle from screen
 	 void HideRectangle(TCanvas *Canvas)
 	 {
 		Canvas->Pen->Color=clWhite;
 		Canvas->Rectangle(0, 0, 600, 800);
 	 }
-	  // функция, двигающая прямоугольник в задданные координаты
+	  // func which move rectangle on specified coordinates 
 	 void MoveRectangle(TCanvas *Canvas, int xn, int yn)
 	 {
 		int xe = x, ye = y;
@@ -57,7 +57,7 @@ class RectangleObject
 			Sleep(10);
 			}
 	 }
-	 // функция масштабирования прямоугольника
+	 // func which scale rectangle
 	 void ScaleRectangle(TCanvas *Canvas, int xs, bool isIncrease)
 	 {
 		for (int Count = 1; Count <= xs; Count++){
@@ -69,12 +69,12 @@ class RectangleObject
 				ShowRectangle(Canvas, x, y, a - 1, b - 1);
 			Sleep(30);
 			if (a <= 0 || b <= 0){
-				ShowMessage("Фигура испарилась");
+				ShowMessage("Г”ГЁГЈГіГ°Г  ГЁГ±ГЇГ Г°ГЁГ«Г Г±Гј");
 				return;
 			}
 		}
 	 }
-	 // функция отрисовки прямоугольника при повороте	
+	 // func which show rotate rectangle	
 	 void ShowRotateRectangle(TCanvas *Canvas,int x1_new, int x2_new, int x3_new, int x4_new, int y1_new, int y2_new, int y3_new, int y4_new)
 	 {
 		Canvas->Pen->Color = clRed;
@@ -87,7 +87,7 @@ class RectangleObject
 		Canvas->MoveTo(x4_new,y4_new);
 		Canvas->LineTo(x1_new, y1_new);
 	 }
-	 // функция расчета новых координат прямоугольника при повороте
+	 // func which calculate new coordinates of rotate rectangle
 	 void RotateCalculate(int gr, int x1_old, int x2_old, int x3_old, int x4_old, int y1_old, int y2_old,
 	  int y3_old, int y4_old, int xo, int yo, int *x1_new, int *x2_new, int *x3_new, int *x4_new,
 	   int *y1_new, int *y2_new, int *y3_new, int *y4_new)
@@ -96,7 +96,7 @@ class RectangleObject
 			gr = gr - 360;
 		double sina = sin(gr * (M_PI / 180));
 		double cosa = cos(gr * (M_PI / 180));
-		*x1_new = ((x1_old - xo) * cosa - (y1_old - yo) * sina) + xo; // расчет новых  координат
+		*x1_new = ((x1_old - xo) * cosa - (y1_old - yo) * sina) + xo; 
 		*y1_new = ((x1_old - xo) * sina + (y1_old - yo) * cosa) + yo;
 
 		*x2_new = ((x2_old - xo) * cosa - (y2_old - yo) * sina) + xo;
@@ -108,14 +108,14 @@ class RectangleObject
 		*x4_new = ((x4_old - xo) * cosa - (y4_old - yo) * sina) + xo;
 		*y4_new = ((x4_old - xo) * sina + (y4_old - yo) * cosa) + yo;
 	 }
-	 // функция поворота прямоугольника на заданный градус
+	 // func which rotate rectangle
 	 void RotateRectangle(TCanvas *Canvas, int xRotate)
 	 {
 		int Degree = xRotate;
 		for (int TempDegree = 0; TempDegree <= Degree; TempDegree++){
 			HideRectangle(Canvas);
-			int width = 2*a, height = 2*b; //ширина и высота прям-ка
-			int x1 = x - a, y1 = x - b; //координаты верхнего левого угла
+			int width = 2*a, height = 2*b; 
+			int x1 = x - a, y1 = x - b; 
 			int x1_old = x1, x1_new;
 			int x2_old = x1 + width, x2_new;
 			int x3_old = x1 + width, x3_new;
@@ -132,17 +132,17 @@ class RectangleObject
 			Sleep(50);
 		}
 	 }
-	 // функция, высчитывающая площадь прямоугольника
+	 // func which find rectangle area
 	 int AreaRectangle()
 	 {
 		 return a * b;
 	 }
-	 // функция, высчитывающая периметр прямоугольника
+	 // func which find rectangle perimetr
 	 int PerimetrRectangle()
 	 {
 		 return 2 * (a + b);
 	 }
-	 // деструктор
+	 // destructor
 	 ~RectangleObject(){}
 };
 
