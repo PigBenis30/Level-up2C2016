@@ -15,12 +15,12 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 
-DoSmoke ATrain;
+Smoke train;
 
 // event handler when you click on button <Draw train>
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
-	ATrain.ShowTrain(Canvas);
+	train.showTrain(Canvas);
 }
 //---------------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
 	Canvas->Brush->Color = clGray;
-	ATrain.ProduceSmoke(Canvas);
+	train.produceSmoke(Canvas);
 }
 //---------------------------------------------------------------------------
 // event handler when you click on button <Exit>
@@ -40,7 +40,7 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 // event handler when you click on button <Remove smoke>
 void __fastcall TForm1::Button3Click(TObject *Sender)
 {
-    ATrain.RemoveSmoke(Canvas, 120, 180);
+    train.removeSmoke(Canvas, 120, 180);
 }
 //---------------------------------------------------------------------------
 
