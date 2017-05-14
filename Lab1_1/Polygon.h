@@ -1,47 +1,47 @@
 #include <vcl.h>
  // class Polygon
-class PolygonObject
+class Polygon
 {
 	protected:
-	int x, y, r, n;
+	int x_, y_, radius_, nSides_;
 
 	public:
 	// constructor without initialization parameters
-	PolygonObject() {}
+	Polygon() {}
 	// func which draw polygon
-	void ShowPolygon(TCanvas *Canvas, int xp, int yp, int rp, int np)
+	void showPolygon(TCanvas *Canvas, int xp, int yp, int rp, int np)
 	 {
 		int xi, yi;
-		x = xp;
-		y = yp;
-		r = rp;
-		n = np;
-		if (n == 0)
+		x_ = xp;
+		y_ = yp;
+		radius_ = rp;
+		nSides_ = np;
+		if (np == 0)
 			return;
 		else{
-		xi = x + r * cos(2 * M_PI / n);
-		yi = y + r * sin(2 * M_PI / n);
+		xi = x_ + radius * cos(2 * M_PI / nSides_);
+		yi = y_ + radius * sin(2 * M_PI / nSides_);
 		Canvas->MoveTo(xi, yi);
 		
 		Canvas->Pen->Color=clRed;
 		
-		for (int i = 0; i <= n; i++) {
-			xi = x + r * cos(2 * M_PI * i / n);
-			yi = y + r * sin(2 * M_PI * i / n);
+		for (int i = 0; i <= nSides_; i++) {
+			xi = x_ + radius * cos(2 * M_PI * i / nSides_);
+			yi = y_ + radius * sin(2 * M_PI * i / nSides_);
 			Canvas->LineTo(xi, yi);
 		}
 		}
 	 }
 	 // func which hide polygon from screen
-	 void HidePolygon(TCanvas *Canvas)
+	 void hidePolygon(TCanvas *Canvas)
 	 {
 		Canvas->Pen->Color=clWhite;
 		Canvas->Rectangle(0, 0, 600, 800);
 	 }
 	 // func which move polygon on specified coordinates
-	 void MovePolygon(TCanvas *Canvas, int xn, int yn)
+	 void movePolygon(TCanvas *Canvas, int xn, int yn)
 	 {
-		int xe = x, ye = y;
+		int xe = x_, ye = y_;
 		bool isAvaible = true;
 
 		while(isAvaible) {
@@ -62,44 +62,44 @@ class PolygonObject
 				ye--;
 				isAvaible = true;
 			}
-			HidePolygon(Canvas);
-			x = xe;
-			y = ye;
-			ShowPolygon(Canvas, x, y, r, n);
+			hidePolygon(Canvas);
+			x_ = xe;
+			y_ = ye;
+			ShowPolygon(Canvas, x_, y_, radius_, nSides_);
 			Sleep(10);
 			}
 	 }
 	 // func which scale polygon
-	 void ScalePolygon(TCanvas *Canvas, int xn, bool isIncrease)
+	 void scalePolygon(TCanvas *Canvas, int xn, bool isIncrease)
 	 {
 		for (int Count = 1; Count <= xn; Count++){
-			HidePolygon(Canvas);
+			hidePolygon(Canvas);
 			if (isIncrease)
-				ShowPolygon(Canvas, x, y, r + 1, n);
+				showPolygon(Canvas, x_, y_, radius_ + 1, nSides_);
 			else
-				ShowPolygon(Canvas, x, y, r - 1, n);
+				showPolygon(Canvas, x_, y_, radius_ - 1, nSides_);
 			Sleep(30);
-			if (r <= 0){
-				ShowMessage("Ôèãóðà èñïàðèëàñü");
+			if (radius_ <= 0){
+				ShowMessage("Фигура испарилась!");
 				return;
 			}
 		}
 	 }
 	 // func which find polygon area
-	 int AreaPolygon()
+	 int computeArea()
 	 {
-		if (n == 0)
+		if (nSides_ == 0)
 			return 0;
 		else
-			return n / 2 * r * r * sin(2 * M_PI / n);
+			return nSides_ / 2 * radius_ * radius_ * sin(2 * M_PI / nSides_);
 	 }
 	 // func which find polygon perimetr
-	 int PerimetrPolygon()
-	 {  if (n == 0)
+	 int computePerimetr()
+	 {  if (nSides_ == 0)
 			return 0;
 		else {
-			int a = 2 * r * sin(M_PI / n);
-			return a * n;
+			int temp = 2 * radius_ * sin(M_PI / nSides_);
+			return temp * nSides_;
 		}
 	 }
 	 // destructor
