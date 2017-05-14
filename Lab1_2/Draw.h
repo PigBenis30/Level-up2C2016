@@ -6,7 +6,7 @@ class Train
 	// constructor without initialization parameters
 	Train(){}
 	// function wich draw train
-	void ShowTrain(TCanvas *Canvas)
+	void showTrain(TCanvas *Canvas)
 	{
 		Canvas->Pen->Color = clBlue;
 		Canvas->Brush->Color = clRed;
@@ -32,31 +32,31 @@ class Train
 	~Train(){}
 };
 
-class DoSmoke : public Train
+class Smoke : public Train
 {
 	public:
 	// constructor without initialization parameters
-	DoSmoke(){}
+	Smoke(){}
 	// function which produce smoke from train
-	void ProduceSmoke(TCanvas *Canvas)
+	void produceSmoke(TCanvas *Canvas)
 	{
 		int y1 = 120, y2 = 180;
 		while (y1 > 0){
 			Canvas->FillRect(Rect(455, y1, 475, y2));
 			Sleep(1000);
 			y1-=40;
-			RemoveSmoke(Canvas, y1, y2);
+			removeSmoke(Canvas, y1, y2);
 			y2-=40;
 		}
 		Canvas->FillRect(Rect(455, 120, 475, 180));
 	}
 	// function, which remove smoke from train
-	void RemoveSmoke(TCanvas *Canvas, int y1, int y2)
+	void removeSmoke(TCanvas *Canvas, int y1, int y2)
 	{
 		Canvas->Brush->Color = clWhite;
 		Canvas->FillRect(Rect(455, y1, 475, y2));
 		Canvas->Brush->Color = clGray;
 	}
 	//destructor
-	~DoSmoke(){};
+	~Smoke(){};
 };
