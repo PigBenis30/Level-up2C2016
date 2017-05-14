@@ -2,6 +2,6 @@
 
 #pragma hdrstop
 
-#include "Ellipse.h"
+#include "MyEllipse.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
