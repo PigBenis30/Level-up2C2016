@@ -15,7 +15,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 
-Smoke train;
+SmokeTrain train;
 
 // event handler when you click on button <Draw train>
 void __fastcall TForm1::Button1Click(TObject *Sender)
