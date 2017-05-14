@@ -2,6 +2,6 @@
 
 #pragma hdrstop
 
-#include "Rectangle.h"
+#include "MyRectangle.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
