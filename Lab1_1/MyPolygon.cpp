@@ -2,6 +2,6 @@
 
 #pragma hdrstop
 
-#include "Polygon.h"
+#include "MyPolygon.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
