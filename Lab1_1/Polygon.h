@@ -65,7 +65,7 @@ class Polygon
 			hidePolygon(Canvas);
 			x_ = xe;
 			y_ = ye;
-			ShowPolygon(Canvas, x_, y_, radius_, nSides_);
+			showPolygon(Canvas, x_, y_, radius_, nSides_);
 			Sleep(10);
 			}
 	 }
