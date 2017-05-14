@@ -32,11 +32,11 @@ class Train
 	~Train(){}
 };
 
-class Smoke : public Train
+class SmokeTrain : public Train
 {
 	public:
 	// constructor without initialization parameters
-	Smoke(){}
+	SmokeTrain(){}
 	// function which produce smoke from train
 	void produceSmoke(TCanvas *Canvas)
 	{
@@ -58,5 +58,5 @@ class Smoke : public Train
 		Canvas->Brush->Color = clGray;
 	}
 	//destructor
-	~Smoke(){};
+	~SmokeTrain(){};
 };
