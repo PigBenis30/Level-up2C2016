@@ -11,9 +11,9 @@
 
 TForm2 *Form2;
 
-EllipseObject ellipse;
-RectangleObject rectangle;
-PolygonObject polygon;
+Ellipse ellipse;
+Rectangle rectangle;
+Polygon polygon;
 //---------------------------------------------------------------------------
 __fastcall TForm2::TForm2(TComponent* Owner): TForm(Owner)
 {
