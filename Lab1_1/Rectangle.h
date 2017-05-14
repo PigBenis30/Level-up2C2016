@@ -1,33 +1,33 @@
 #include <vcl.h>
 // class Rectangle
-class RectangleObject
+class Rectangle
 {
 	 private:
-	 int x, y, a, b;
+	 int x_, y_, aAxis_, bAxis_;
 
 	 public:
 	 // constructor without initialization parameters
-	 RectangleObject() {}
+	 Rectangle() {}
 	 // func which draw rectangle on screen
-	  void ShowRectangle(TCanvas *Canvas, int xr, int yr, int ar, int br)
+	  void showRectangle(TCanvas *Canvas, int xr, int yr, int ar, int br)
 	 {
-		x = xr;
-		y = yr;
-		a = ar;
-		b = br;
+		x_ = xr;
+		y_ = yr;
+		aAxis_ = ar;
+		bAxis_ = br;
 		Canvas->Pen->Color=clRed;
-		Canvas->Rectangle(x - a, y - b, x + a, y + b);
+		Canvas->Rectangle(x_ - aAxis_, y_ - bAxis_, x_ + aAxis_, y_ + bAxis_);
 	 }
 	 // func which hide rectangle from screen
-	 void HideRectangle(TCanvas *Canvas)
+	 void hideRectangle(TCanvas *Canvas)
 	 {
 		Canvas->Pen->Color=clWhite;
 		Canvas->Rectangle(0, 0, 600, 800);
 	 }
 	  // func which move rectangle on specified coordinates 
-	 void MoveRectangle(TCanvas *Canvas, int xn, int yn)
+	 void moveRectangle(TCanvas *Canvas, int xn, int yn)
 	 {
-		int xe = x, ye = y;
+		int xe = x_, ye = y_;
 		bool isAvaible = true;
 
 		while(isAvaible) {
@@ -50,32 +50,32 @@ class RectangleObject
 				isAvaible = true;
 			}
 
-			HideRectangle(Canvas);
+			hideRectangle(Canvas);
 			x = xe;
 			y = ye;
-			ShowRectangle(Canvas, x, y, a, b);
+			showRectangle(Canvas, x_, y_, aAxis_, bAxis_);
 			Sleep(10);
 			}
 	 }
 	 // func which scale rectangle
-	 void ScaleRectangle(TCanvas *Canvas, int xs, bool isIncrease)
+	 void scaleRectangle(TCanvas *Canvas, int xs, bool isIncrease)
 	 {
-		for (int Count = 1; Count <= xs; Count++){
+		for (int i = 1; i <= xs; i++){
 			HideRectangle(Canvas);
 			if (isIncrease){
-				ShowRectangle(Canvas, x, y, a + 1, b + 1);
+				showRectangle(Canvas, x_, y_, aAxis_ + 1, bAxis_ + 1);
 			}
 			else
-				ShowRectangle(Canvas, x, y, a - 1, b - 1);
+				showRectangle(Canvas, x_, y_, aAxis_ - 1, bAxis_ - 1);
 			Sleep(30);
-			if (a <= 0 || b <= 0){
-				ShowMessage("Ôèãóðà èñïàðèëàñü");
+			if (aAxis_ <= 0 || bAxis_ <= 0){
+				ShowMessage("Фигура испарилась");
 				return;
 			}
 		}
 	 }
 	 // func which show rotate rectangle	
-	 void ShowRotateRectangle(TCanvas *Canvas,int x1_new, int x2_new, int x3_new, int x4_new, int y1_new, int y2_new, int y3_new, int y4_new)
+	 void showRotateRectangle(TCanvas *Canvas,int x1_new, int x2_new, int x3_new, int x4_new, int y1_new, int y2_new, int y3_new, int y4_new)
 	 {
 		Canvas->Pen->Color = clRed;
 		Canvas->MoveTo(x1_new,y1_new);
@@ -88,14 +88,14 @@ class RectangleObject
 		Canvas->LineTo(x1_new, y1_new);
 	 }
 	 // func which calculate new coordinates of rotate rectangle
-	 void RotateCalculate(int gr, int x1_old, int x2_old, int x3_old, int x4_old, int y1_old, int y2_old,
+	 void rotateCalculate(int degree, int x1_old, int x2_old, int x3_old, int x4_old, int y1_old, int y2_old,
 	  int y3_old, int y4_old, int xo, int yo, int *x1_new, int *x2_new, int *x3_new, int *x4_new,
 	   int *y1_new, int *y2_new, int *y3_new, int *y4_new)
 	 {
-		if (gr > 360)
-			gr = gr - 360;
-		double sina = sin(gr * (M_PI / 180));
-		double cosa = cos(gr * (M_PI / 180));
+		if (degree > 360)
+			degree = degree - 360;
+		double sina = sin(degree * (M_PI / 180));
+		double cosa = cos(degree * (M_PI / 180));
 		*x1_new = ((x1_old - xo) * cosa - (y1_old - yo) * sina) + xo; 
 		*y1_new = ((x1_old - xo) * sina + (y1_old - yo) * cosa) + yo;
 
@@ -109,13 +109,13 @@ class RectangleObject
 		*y4_new = ((x4_old - xo) * sina + (y4_old - yo) * cosa) + yo;
 	 }
 	 // func which rotate rectangle
-	 void RotateRectangle(TCanvas *Canvas, int xRotate)
+	 void rotateRectangle(TCanvas *Canvas, int xRotate)
 	 {
-		int Degree = xRotate;
-		for (int TempDegree = 0; TempDegree <= Degree; TempDegree++){
-			HideRectangle(Canvas);
-			int width = 2*a, height = 2*b; 
-			int x1 = x - a, y1 = x - b; 
+		int degree = xRotate;
+		for (int tempDegree = 0; tempDegree <= degree; tempDegree++){
+			hideRectangle(Canvas);
+			int width = 2 * aAxis_, height = 2 * bAxis_; 
+			int x1 = x_ - aAxis_, y1 = x_ - bAxis_; 
 			int x1_old = x1, x1_new;
 			int x2_old = x1 + width, x2_new;
 			int x3_old = x1 + width, x3_new;
@@ -124,26 +124,26 @@ class RectangleObject
 			int y2_old = y1, y2_new;
 			int y3_old = y1 + height, y3_new;
 			int y4_old = y1 + height, y4_new;
-			int xo = x1+(width/2);
-			int yo = y1+(height/2);
-			RotateCalculate(TempDegree, x1_old, x2_old, x3_old, x4_old, y1_old, y2_old, y3_old, y4_old, xo, yo,
+			int xo = x1 + (width/2);
+			int yo = y1 + (height/2);
+			rotateCalculate(tempDegree, x1_old, x2_old, x3_old, x4_old, y1_old, y2_old, y3_old, y4_old, xo, yo,
 			&x1_new, &x2_new, &x3_new, &x4_new, &y1_new, &y2_new, &y3_new, &y4_new);
-			ShowRotateRectangle(Canvas,x1_new, x2_new, x3_new, x4_new, y1_new, y2_new, y3_new, y4_new);
+			showRotateRectangle(Canvas,x1_new, x2_new, x3_new, x4_new, y1_new, y2_new, y3_new, y4_new);
 			Sleep(50);
 		}
 	 }
 	 // func which find rectangle area
-	 int AreaRectangle()
+	 int computeArea()
 	 {
-		 return a * b;
+		 return aAxis_ * bAxis_;
 	 }
 	 // func which find rectangle perimetr
-	 int PerimetrRectangle()
+	 int computePerimetr()
 	 {
-		 return 2 * (a + b);
+		 return 2 * (aAxis_ + bAxis_);
 	 }
 	 // destructor
-	 ~RectangleObject(){}
+	 ~Rectangle(){}
 };
 
 
