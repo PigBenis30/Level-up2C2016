@@ -7,9 +7,9 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
-#include "Ellipse.h"
-#include "Rectangle.h"
-#include "Polygon.h"
+#include "MyEllipse.h"
+#include "MyRectangle.h"
+#include "MyPolygon.h"
 #include <Data.DB.hpp>
 #include <Vcl.ExtCtrls.hpp>
 //---------------------------------------------------------------------------
