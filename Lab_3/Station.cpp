@@ -98,4 +98,3 @@ Bus::~Bus()
 		head_ = temp;
 	}
 }
-
