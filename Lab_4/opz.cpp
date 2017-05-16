@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-Poland::~Poland()
+Poland::~PolandNotate()
 {
 	while(begin != NULL){
 		Stack* temp = begin->next;
@@ -15,7 +15,7 @@ Poland::~Poland()
 	}
 }
 
-Stack* Poland::inStack(char in) // begin = InStack(begin, a);
+Stack* PolandNotate::inStack(char in) // begin = InStack(begin, a);
 {
 	Stack* temp = new Stack;
 	temp->info = in;
@@ -23,7 +23,7 @@ Stack* Poland::inStack(char in) // begin = InStack(begin, a);
 	return temp;
 }
 
-Stack* Poland::outStack(char* out) // begin = OutStack(begin, &a);
+Stack* PolandNotate::outStack(char* out) // begin = OutStack(begin, &a);
 {
 	Stack *t = begin;
 	*out = begin -> info;
@@ -32,7 +32,7 @@ Stack* Poland::outStack(char* out) // begin = OutStack(begin, &a);
 	return begin;
 }
 
-int Poland::prior(char a)
+int PolandNotate::prior(char a)
 {
 	switch (a) {
 		case '^': return 4;
@@ -43,7 +43,7 @@ int Poland::prior(char a)
 	return 0;
 }
 
-double Poland::rezult(String str)
+double PolandNotate::rezult(String str)
 {
 	char ch, ch1, ch2;
 	double op1, op2, rez;
