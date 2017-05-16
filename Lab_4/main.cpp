@@ -9,7 +9,7 @@
 #pragma resource "*.dfm"
 TForm1 *Form1;
 
-Poland node;
+PolandNotate node;
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
