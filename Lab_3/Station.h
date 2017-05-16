@@ -41,9 +41,6 @@ class Bus{
 	//method which show bus which go to some destination and in time
 	void comeToPlaceAndInTime(TMemo* Memo1, String place, int hour, int minute);
 
-	void checkBusInRoad();
-
-
 	// destructor
 	~Bus();
 };
