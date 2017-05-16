@@ -24,12 +24,10 @@ class Bus{
 	}
 
 	// method which add first element in list
-	void addFirstBus(int number, int hourDeparture, int minuteDeparture,
-		int hourArrive, int minuteArrive, String destination, String type);
+	void addFirstBus(int number, int hourDeparture, int minuteDeparture, int hourArrive, int minuteArrive, String destination, String type);
 
 	// method which add new element in list
-	void addNextBus(int number, int hourDeparture, int minuteDeparture,
- int hourArrive, int minuteArrive, String destination, String type);
+	void addNextBus(int number, int hourDeparture, int minuteDeparture, int hourArrive, int minuteArrive, String destination, String type);
 
 	// method which show list on screen
 	void showBus(TMemo* Memo1);
@@ -45,9 +43,6 @@ class Bus{
 
 	void checkBusInRoad();
 
-	Element* deleteNode();
-
-	void insertNode();
 
 	// destructor
 	~Bus();
