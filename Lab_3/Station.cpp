@@ -6,8 +6,7 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-void Bus::addFirstBus(int number, int hourDeparture, int minuteDeparture,
- int hourArrive, int minuteArrive, String destination, String type)
+void Bus::addFirstBus(int number, int hourDeparture, int minuteDeparture, int hourArrive, int minuteArrive, String destination, String type)
 {
 	head_ = new Element;
 	first_ = head_;
@@ -21,8 +20,7 @@ void Bus::addFirstBus(int number, int hourDeparture, int minuteDeparture,
 	first_ = head_;
 }
 
-void Bus::addNextBus(int number, int hourDeparture, int minuteDeparture,
- int hourArrive, int minuteArrive, String destination, String type)
+void Bus::addNextBus(int number, int hourDeparture, int minuteDeparture, int hourArrive, int minuteArrive, String destination, String type)
 {
 	head_->next = new Element;
 	head_ = head_->next;
@@ -67,7 +65,7 @@ void Bus::comeToPlace(TMemo* Memo1, String place)
 		temp = temp->next;
 	}
 	if (i == NULL)
-		ShowMessage("До заданного пункта автобусы не ходят!");
+		ShowMessage("Г„Г® Г§Г Г¤Г Г­Г­Г®ГЈГ® ГЇГіГ­ГЄГІГ  Г ГўГІГ®ГЎГіГ±Г» Г­ГҐ ГµГ®Г¤ГїГІ!");
 }
 
 void Bus::comeToPlaceAndInTime(TMemo* Memo1, String place, int hour, int minute)
@@ -88,7 +86,7 @@ void Bus::comeToPlaceAndInTime(TMemo* Memo1, String place, int hour, int minute)
 		temp = temp->next;
 	}
 	if (i == NULL)
-		ShowMessage("До заданного пункта автобусы не ходят или не успевают до заданного времени!");
+		ShowMessage("Г„Г® Г§Г Г¤Г Г­Г­Г®ГЈГ® ГЇГіГ­ГЄГІГ  Г ГўГІГ®ГЎГіГ±Г» Г­ГҐ ГµГ®Г¤ГїГІ ГЁГ«ГЁ Г­ГҐ ГіГ±ГЇГҐГўГ ГѕГІ Г¤Г® Г§Г Г¤Г Г­Г­Г®ГЈГ® ГўГ°ГҐГ¬ГҐГ­ГЁ!");
 }
 
 
