@@ -65,7 +65,7 @@ void Bus::comeToPlace(TMemo* Memo1, String place)
 		temp = temp->next;
 	}
 	if (i == NULL)
-		ShowMessage("Äî çàäàííîãî ïóíêòà àâòîáóñû íå õîäÿò!");
+		ShowMessage("There are no such buses!");
 }
 
 void Bus::comeToPlaceAndInTime(TMemo* Memo1, String place, int hour, int minute)
@@ -86,7 +86,7 @@ void Bus::comeToPlaceAndInTime(TMemo* Memo1, String place, int hour, int minute)
 		temp = temp->next;
 	}
 	if (i == NULL)
-		ShowMessage("Äî çàäàííîãî ïóíêòà àâòîáóñû íå õîäÿò èëè íå óñïåâàþò äî çàäàííîãî âðåìåíè!");
+		ShowMessage("There no such buses!");
 }
 
 
