@@ -46,7 +46,7 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 		} catch(...)
 		{
 			hour = - 5;
-			ShowMessage("Введите значение");
+			ShowMessage("Please enter value!");
 		}
 		if (hour != -5){
 			allBuses.comeToPlaceAndInTime(Memo1, Edit8->Text, hour, minute);
@@ -58,13 +58,13 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 		if (nBusesInRoad != 0)
 			busesInRoad.showBus(Memo1);
 		else
-			Memo1->Text = "Автобусов на маршруте нет!";
+			Memo1->Text = "There aren't buses in road!";
 	}
 	if (ComboBox1->ItemIndex == 3){
 		if (nBusesInPark != 0)
 			busesInPark.showBus(Memo1);
 		else
-			Memo1->Text = "Автобусов в парке нет!";
+			Memo1->Text = "There no buses in park!";
 	}
 
 }
@@ -85,17 +85,17 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 		currentMinute = StrToInt(Edit11->Text);
 	} catch(...)
 	{
-		ShowMessage("Введите значение во все поля!");
+		ShowMessage("Please enter a value!");
 		number = -5;
 	}
 	if (number != -5){
 		String typeBus;
 		if (RadioButton1->Checked == true)
-			typeBus = "Городской";
+			typeBus = "City transport";
 		if (RadioButton2->Checked == true)
-			typeBus = "Пригородный";
+			typeBus = "Suburban";
 		if (RadioButton3->Checked == true)
-			typeBus = "Междугородний";
+			typeBus = "Intercity";
 		allBuses.addFirstBus(number, Time[0], Time[1], Time[2], Time[3], Edit7->Text, typeBus);
 		if (Time[0]*60 + Time[1] <= currentHour*60 + currentMinute
 		 && currentHour*60 + currentMinute <= Time[2]*60 + Time[3]){
@@ -126,17 +126,17 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 		Time[3] = StrToInt(Edit4->Text);
 	} catch(...)
 	{
-		ShowMessage("Введите значение во все поля!");
+		ShowMessage("Please enter a value!");
 		number = -5;
 	}
 	if (number != -5){
 		String typeBus;
 		if (RadioButton1->Checked == true)
-			typeBus = "Городской";
+			typeBus = "City transport";
 		if (RadioButton2->Checked == true)
-			typeBus = "Пригородный";
+			typeBus = "Suburban";
 		if (RadioButton3->Checked == true)
-			typeBus = "Междугородний";
+			typeBus = "Intercity";
 		allBuses.addNextBus(number, Time[0], Time[1], Time[2], Time[3], Edit7->Text, typeBus);
 		if (Time[0]*60 + Time[1] <= currentHour*60 + currentMinute
 		 && currentHour*60 + currentMinute <= Time[2]*60 + Time[3]){
@@ -189,7 +189,7 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 	Button5->Enabled = false;
 }
 //---------------------------------------------------------------------------
-// добавить заполнение двух списков.
+// Г¤Г®ГЎГ ГўГЁГІГј Г§Г ГЇГ®Г«Г­ГҐГ­ГЁГҐ Г¤ГўГіГµ Г±ГЇГЁГ±ГЄГ®Гў.
 
 // event handler when you choose item in combobox
 void __fastcall TForm1::ComboBox1Select(TObject *Sender)
@@ -225,7 +225,7 @@ void __fastcall TForm1::Edit6Change(TObject *Sender)
 	try
 	{
 		if (StrToInt(Edit6->Text) >= 24){
-			ShowMessage("Введите правильное значене часа!");
+			ShowMessage("Please enter right hour value!");
 			Edit6->Clear();
 		}
 	} catch(...){}
@@ -238,7 +238,7 @@ void __fastcall TForm1::Edit9Change(TObject *Sender)
 	try
 	{
 		if (StrToInt(Edit9->Text) >= 60){
-			ShowMessage("Введите правильное значение минут!");
+			ShowMessage("Please enter right minute value!");
 			Edit9->Clear();
 		}
 	}catch(...){}
@@ -251,7 +251,7 @@ void __fastcall TForm1::Edit1Change(TObject *Sender)
 	try
 	{
 		if (StrToInt(Edit1->Text) >= 24){
-			ShowMessage("Введите правильное значене часа!");
+			ShowMessage("Please enter right hour value!");
 			Edit1->Clear();
 		}
 	} catch(...){}
@@ -264,7 +264,7 @@ void __fastcall TForm1::Edit2Change(TObject *Sender)
 	try
 	{
 		if (StrToInt(Edit2->Text) >= 60){
-			ShowMessage("Введите правильное значение минут!");
+			ShowMessage("Please enter right minute value!");
 			Edit2->Clear();
 		}
 	}catch(...){}
@@ -277,7 +277,7 @@ void __fastcall TForm1::Edit3Change(TObject *Sender)
 	try
 	{
 		if (StrToInt(Edit3->Text) >= 24){
-			ShowMessage("Введите правильное значене часа!");
+			ShowMessage("Please enter right hour value!");
 			Edit3->Clear();
 		}
 	} catch(...){}
@@ -290,7 +290,7 @@ void __fastcall TForm1::Edit4Change(TObject *Sender)
 	try
 	{
 		if (StrToInt(Edit4->Text) >= 60){
-			ShowMessage("Введите правильное значение минут!");
+			ShowMessage("Please enter right minute value!");
 			Edit4->Clear();
 		}
 	}catch(...){}
@@ -302,7 +302,7 @@ void __fastcall TForm1::Edit10Change(TObject *Sender)
 	try
 	{
 		if (StrToInt(Edit10->Text) >= 24){
-			ShowMessage("Введите правильное значене часа!");
+			ShowMessage("Please enter right hour value!");
 			Edit10->Clear();
 		}
 	} catch(...){}
@@ -314,7 +314,7 @@ void __fastcall TForm1::Edit11Change(TObject *Sender)
 	try
 	{
 		if (StrToInt(Edit11->Text) >= 60){
-			ShowMessage("Введите правильное значение минут!");
+			ShowMessage("Please enter right minute value!");
 			Edit11->Clear();
 		}
 	}catch(...){}
