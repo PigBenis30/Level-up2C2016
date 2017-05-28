@@ -24,7 +24,7 @@
  {
 	 if (info < 0)
 			info = - info;
-	 return info%SIZE;
+	 return info % SIZE;
  }
 
  void Table::push(int info)
@@ -85,7 +85,7 @@ void Table::show(TMemo* Memo)
 	 int key = NULL;
 	 String string = "";
 	 for ( ;key < SIZE; key++){
-		string += "Ключ " + IntToStr(key) + ": ";
+		string += "Key " + IntToStr(key) + ": ";
 		if (hashTable[key].nElements != NULL){
 			string += IntToStr(hashTable[key].info)
 			+ " (" + IntToStr(hashTable[key].nElements) + ") ";
