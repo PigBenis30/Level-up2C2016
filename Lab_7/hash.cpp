@@ -67,7 +67,7 @@
  void Table::search(int key, TMemo* Memo)
  {
 	int count = 0;
-	if (hashTable[key].nElements != 0){
+	if (hashTable[key].nElements != NULL){
 		Memo->Lines->Add(IntToStr(hashTable[key].info) + " (" + IntToStr(hashTable[key].nElements) + ") ");
 		count++;
 	}
@@ -103,16 +103,16 @@ void Table::show(TMemo* Memo)
 
  int MyTable::averageValue()
  {
-	int averageKey = 0;
-	int count = 0;
-	 for (int i = 0; i < SIZE; i++){
-		if (hashTable[i].nElements != 0){
+	int averageKey = NULL;
+	int count = NULL;
+	 for (int i = NULL; i < SIZE; i++){
+		if (hashTable[i].nElements != NULL){
 			averageKey += i;
 			count += hashTable[i].nElements;
 		}
 		Stack* temp = hashTable[i].next;
 		while (temp != NULL){
-			if (temp->nElements != 0){
+			if (temp->nElements != NULL){
 				averageKey += i;
 				count += temp->nElements;
 				temp = temp->next;
@@ -125,8 +125,8 @@ void Table::show(TMemo* Memo)
  int MyTable::countNoMoreThanAverage()
  {
 	int averageKey = averageValue();
-	int count = 0;
-	for (int i = 0; i <= averageKey; i++){
+	int count = NULL;
+	for (int i = NULL; i <= averageKey; i++){
 		count += hashTable[i].nElements;
 		Stack* temp = hashTable[i].next;
 		while (temp != NULL){
